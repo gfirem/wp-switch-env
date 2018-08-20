@@ -1,0 +1,110 @@
+{
+  "free": {
+    "name": "Free",
+    "remove_option": [
+      "test"
+    ],
+    "activate": [
+      "wc4bp/wc4bp-basic-integration.php"
+    ],
+    "deactivate": [
+      "wc4bp-groups/wc4bp-groups.php",
+      "wc4bp-premium/wc4bp-basic-integration.php",
+      "woocommerce-buddypress-integration-xprofile-checkout-manager/loader.php",
+      "wc4bp-booking-premium/wc4bp-booking.php",
+      "wc4bp-subscriptions-premium/wc4bp-subscriptions.php",
+      "woocommerce-bookings/woocommerce-bookings.php",
+      "woocommerce-subscriptions/woocommerce-subscriptions.php"
+    ]
+  },
+  "pro": {
+    "name": "Professional",
+    "remove_option": [
+      "test"
+    ],
+    "activate": [
+      "wc4bp-premium/wc4bp-basic-integration.php"
+    ],
+    "deactivate": [
+      "wc4bp-groups/wc4bp-groups.php",
+      "wc4bp/wc4bp-basic-integration.php",
+      "woocommerce-buddypress-integration-xprofile-checkout-manager/loader.php",
+      "wc4bp-booking-premium/wc4bp-booking.php",
+      "wc4bp-subscriptions-premium/wc4bp-subscriptions.php",
+      "woocommerce-bookings/woocommerce-bookings.php",
+      "woocommerce-subscriptions/woocommerce-subscriptions.php"
+    ]
+  },
+  "groups": {
+    "name": "WC4BP-Groups",
+    "remove_option": [
+      "test"
+    ],
+    "activate": [
+      "wc4bp-groups/wc4bp-groups.php",
+      "wc4bp-premium/wc4bp-basic-integration.php"
+    ],
+    "deactivate": [
+      "wc4bp/wc4bp-basic-integration.php",
+      "woocommerce-buddypress-integration-xprofile-checkout-manager/loader.php",
+      "wc4bp-booking-premium/wc4bp-booking.php",
+      "wc4bp-subscriptions-premium/wc4bp-subscriptions.php",
+      "woocommerce-bookings/woocommerce-bookings.php",
+      "woocommerce-subscriptions/woocommerce-subscriptions.php"
+    ]
+  },
+  "booking": {
+    "name": "WC4BP-Bookings",
+    "remove_option": [
+      "test"
+    ],
+    "activate": [
+      "wc4bp-booking-premium/wc4bp-booking.php",
+      "wc4bp-premium/wc4bp-basic-integration.php",
+      "woocommerce-bookings/woocommerce-bookings.php"
+    ],
+    "deactivate": [
+      "wc4bp/wc4bp-basic-integration.php",
+      "wc4bp-groups/wc4bp-groups.php",
+      "woocommerce-buddypress-integration-xprofile-checkout-manager/loader.php",
+      "wc4bp-subscriptions-premium/wc4bp-subscriptions.php",
+      "woocommerce-subscriptions/woocommerce-subscriptions.php"
+    ]
+  },
+  "subscription": {
+    "name": "WC4BP-Subscription",
+    "remove_option": [
+      "test"
+    ],
+    "activate": [
+      "wc4bp-premium/wc4bp-basic-integration.php",
+      "wc4bp-subscriptions-premium/wc4bp-subscriptions.php",
+      "woocommerce-subscriptions/woocommerce-subscriptions.php"
+    ],
+    "deactivate": [
+      "wc4bp/wc4bp-basic-integration.php",
+      "wc4bp-groups/wc4bp-groups.php",
+      "woocommerce-buddypress-integration-xprofile-checkout-manager/loader.php",
+      "wc4bp-booking-premium/wc4bp-booking.php",
+      "woocommerce-bookings/woocommerce-bookings.php"
+    ]
+  },
+  "xprofile": {
+    "name": "WC4BP-Checkout-Manager",
+    "remove_option": [
+      "test"
+    ],
+    "activate": [
+      "wc4bp-premium/wc4bp-basic-integration.php",
+      "woocommerce-buddypress-integration-xprofile-checkout-manager/loader.php"
+    ],
+    "deactivate": [
+      "wc4bp/wc4bp-basic-integration.php",
+      "wc4bp-groups/wc4bp-groups.php",
+      "wc4bp-booking-premium/wc4bp-booking.php",
+      "woocommerce-bookings/woocommerce-bookings.php",
+      "wc4bp-subscriptions-premium/wc4bp-subscriptions.php",
+      "woocommerce-subscriptions/woocommerce-subscriptions.php"
+    ]
+  }
+}

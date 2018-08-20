@@ -1,0 +1,2 @@
+<a href="https://jsonformatter.curiousconcept.com/" target="_blank">Json Formatter</a><br/>
+<textarea cols="50" rows="10" name="wp_switch_options[settings]" id="wp_switch_options[settings]"><?php echo ( ! empty( $options['settings'] ) ) ? $options['settings'] : '' ?></textarea>
