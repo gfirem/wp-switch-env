@@ -6,7 +6,7 @@
  * Author:      GFireM
  * Author URI: https://gfirem.com/
  * Version:     1.0.0
- * Licence:     GPLv3
+ * Licence:     GPLv2
  * Text Domain: wp-switch-env
  * Domain Path: /languages
  *
