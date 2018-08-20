@@ -18,20 +18,6 @@ class wp_switch_env_admin {
 		add_action( 'admin_menu', array( $this, 'admin_menu' ) );
 		add_action( 'admin_init', array( $this, 'register_admin_settings' ) );
 		$this->options       = get_option( 'wp_switch_options' );
-		$this->settings = array(
-			'free' => array(
-				'name'          => 'Free',
-				'remove_option' => array( 'test' ),
-				'activate'      => array( 'wc4bp-changes/wc4bp-changes.php', 'wc4bp-booking-premium/wc4bp-booking.php' ),
-				'deactivate'    => array( 'gutenberg/gutenberg.php', 'wc4bp-groups/wc4bp-groups.php' ),
-			),
-			'pro'  => array(
-				'name'          => 'Professional',
-				'remove_option' => array( 'test' ),
-				'activate'      => array( 'gutenberg/gutenberg.php', 'wc4bp-groups/wc4bp-groups.php' ),
-				'deactivate'    => array( 'wc4bp-changes/wc4bp-changes.php', 'wc4bp-booking-premium/wc4bp-booking.php' ),
-			),
-		);
 	}
 
 	public function admin_menu() {
