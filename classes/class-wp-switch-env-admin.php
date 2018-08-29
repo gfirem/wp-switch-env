@@ -17,7 +17,7 @@ class wp_switch_env_admin {
 	public function __construct() {
 		add_action( 'admin_menu', array( $this, 'admin_menu' ) );
 		add_action( 'admin_init', array( $this, 'register_admin_settings' ) );
-		$this->options       = get_option( 'wp_switch_options' );
+		$this->options = get_option( 'wp_switch_options' );
 	}
 
 	public function admin_menu() {
@@ -60,26 +60,32 @@ class wp_switch_env_admin {
 	}
 
 	public function change_environment( $options ) {
-		if ( isset( $options['current_env'] ) && intval( $options['current_env'] ) > 0 ) {
-			foreach ( $this->settings as $key => $data ) {
-				if ( intval( $key ) === intval( $options['current_env'] ) ) {
-					self::load_plugins_dependency();
-					if ( isset( $data['activate'] ) ) {
-						foreach ( $data['activate'] as $plugin_name ) {
-							$result = activate_plugin( $plugin_name );
-							if ( ! empty( $result ) && is_wp_error( $result ) ) {
-								/** @var $result WP_Error */
-								add_settings_error( 'current_env', $result->get_error_code(), $result->get_error_message() );
+		if ( isset( $options['current_env'] ) ) {
+			$options  = $this->options;
+			$settings = array();
+			if ( ! empty( $options['settings'] ) ) {
+				$settings = json_decode( $options['settings'], true );
+			}
+			if ( ! empty( $settings ) ) {
+				foreach ( $settings as $key => $data ) {
+					if ( $key === $options['current_env'] ) {
+						self::load_plugins_dependency();
+						if ( isset( $data['activate'] ) ) {
+							foreach ( $data['activate'] as $plugin_name ) {
+								$result = activate_plugin( $plugin_name );
+								if ( ! empty( $result ) && is_wp_error( $result ) ) {
+									/** @var $result WP_Error */
+									add_settings_error( 'current_env', $result->get_error_code(), $result->get_error_message() );
 
-								return false;
+									return false;
+								}
 							}
 						}
-					}
-					if ( isset( $data['deactivate'] ) ) {
-						foreach ( $data['deactivate'] as $plugin_name ) {
-							deactivate_plugins( $plugin_name );
+						if ( isset( $data['deactivate'] ) ) {
+							foreach ( $data['deactivate'] as $plugin_name ) {
+								deactivate_plugins( $plugin_name );
+							}
 						}
-
 					}
 				}
 			}
@@ -89,12 +95,12 @@ class wp_switch_env_admin {
 	}
 
 	public function environment_details() {
-		$options       = $this->options;
+		$options  = $this->options;
 		$settings = array();
 		if ( ! empty( $options['settings'] ) ) {
-			$settings = json_decode( $options['settings'], true);
+			$settings = json_decode( $options['settings'], true );
 		}
-		if(!empty($settings)) {
+		if ( ! empty( $settings ) ) {
 			foreach ( $settings as $key => $data ) {
 				echo '<h3>' . $data['name'] . '</h3>';
 				echo '<strong>' . __( 'Activate', 'wp-switch-env' ) . '</strong>';
@@ -118,7 +124,7 @@ class wp_switch_env_admin {
 				echo '<hr/>';
 			}
 		} else {
-			_e('<p>Need a setting json!</p>', 'wp-switch-env');
+			_e( '<p>Need a setting json!</p>', 'wp-switch-env' );
 		}
 	}
 
@@ -143,9 +149,9 @@ class wp_switch_env_admin {
 		try {
 			$options       = $this->options;
 			$current_value = ! empty( $options['current_env'] ) ? $options['current_env'] : '';
-			$settings = array();
+			$settings      = array();
 			if ( ! empty( $options['settings'] ) ) {
-				$settings = json_decode( $options['settings'], true);
+				$settings = json_decode( $options['settings'], true );
 			}
 
 			include_once( wp_switch_env::$views . 'switch-env.php' );
